@@ -1,8 +1,7 @@
 --
 -- OBS Zoom to Mouse
 -- An OBS lua script to zoom a display-capture source to focus on the mouse.
--- Copyright (c) BlankSourceCode.  All rights reserved.
---
+---
 
 local obs = obslua
 local ffi = require("ffi")
