@@ -1,7 +1,8 @@
 --
--- OBS Zoom to Mouse
+-- Click to Zoom
 -- An OBS lua script to zoom a display-capture source to focus on the mouse.
----
+-- Copyright (c) FastWebCreations LLC.  All rights reserved.
+--
 
 local obs = obslua
 local ffi = require("ffi")
@@ -131,12 +132,10 @@ local function auto_select_source_if_enabled()
         local mouse = get_mouse_pos()
         local name, src, geom = find_monitor_for_mouse(mouse)
         if name and name ~= source_name then
-            log("[auto_select] Changing source from '" .. tostring(source_name) .. "' to '" .. tostring(name) .. "' for mouse position " .. mouse.x .. "," .. mouse.y)
             source_name = name
             monitor_info = geom
             refresh_sceneitem(true)
-        else
-            log("[auto_select] No source change needed for mouse position " .. mouse.x .. "," .. mouse.y)
+            log("Auto-selected source '" .. name .. "' for mouse position " .. mouse.x .. "," .. mouse.y)
         end
     end
 end
@@ -1275,8 +1274,8 @@ end
 
 function on_print_help()
     local help = "\n----------------------------------------------------\n" ..
-        "Help Information for OBS-Zoom-To-Mouse v" .. VERSION .. "\n" ..
-        "https://github.com/BlankSourceCode/obs-zoom-to-mouse\n" ..
+        "Help Information for Click to Zoom v" .. VERSION .. "\n" ..
+        "https://github.com/eadmin2/click-to-zoom\n" ..
         "----------------------------------------------------\n" ..
         "This script will zoom the selected display-capture source to focus on the mouse\n\n" ..
         "Zoom Source: The display capture in the current scene to use for zooming\n" ..
