@@ -1,14 +1,14 @@
-# obs-click-to-zoom
+# click-to-zoom
 
 > **Forked from [BlankSourceCode/obs-zoom-to-mouse](https://github.com/BlankSourceCode/obs-zoom-to-mouse)**
 > 
-> This project is a variant of the original OBS Zoom-to-Mouse script by BlankSourceCode. Full credit for the core implementation and concept goes to the original author. This fork is called **obs-click-to-zoom** to reflect its focus on click/keyboard hotkey-based zooming and modernized documentation.
+> This project is a variant of the original OBS Zoom-to-Mouse script by BlankSourceCode. Full credit for the core implementation and concept goes to the original author. This fork is called **click-to-zoom** to reflect its focus on click/keyboard hotkey-based zooming and modernized documentation.
 
 ---
 
-## What is obs-click-to-zoom?
+## What is click-to-zoom?
 
-**obs-click-to-zoom** is an OBS Lua script that lets you smoothly zoom in on a display capture source, centering the zoom on your mouse position. It is ideal for tutorials, code walkthroughs, or any scenario where you want to highlight a part of your screen in real time. Zooming is triggered by a hotkey ("click to zoom"), and the script can optionally follow your mouse as you move.
+**click-to-zoom** is an OBS Lua script that lets you smoothly zoom in on a display capture source, centering the zoom on your mouse position. It is ideal for tutorials, code walkthroughs, or any scenario where you want to highlight a part of your screen in real time. Zooming is triggered by a hotkey ("click to zoom"), and the script can optionally follow your mouse as you move.
 
 - **Platform support:** Windows, Linux, and Mac
 - **Smooth animation:** Zoom in/out with customizable speed
@@ -22,11 +22,11 @@
 
 ## Installation
 
-1. Download or copy `obs-zoom-to-mouse.lua` from this repository.
+1. Download or copy `click-to-zoom.lua` from this repository.
 2. Launch OBS Studio.
 3. Add a **Display Capture** source to your scene (if you don't have one already).
 4. Go to **Tools → Scripts** in OBS.
-5. Click the `+` button and add `obs-zoom-to-mouse.lua`.
+5. Click the `+` button and add `click-to-zoom.lua`.
 6. (Optional) For best results, set your Display Capture source's transform:
    - **Positional Alignment:** Top Left
    - **Bounding Box type:** Scale to inner bounds
@@ -47,7 +47,7 @@
   - `Toggle follow mouse during zoom` (optional: toggle auto-follow)
 
 ### Script Settings
-Open the **Scripts** window and select `obs-click-to-zoom.lua` to configure:
+Open the **Scripts** window and select `click-to-zoom.lua` to configure:
 
 - **Zoom Source:** Which display capture to zoom
 - **Zoom Factor:** How much to zoom in
@@ -88,12 +88,12 @@ Open the **Scripts** window and select `obs-click-to-zoom.lua` to configure:
 
 ## Credits
 - **Original Author:** [BlankSourceCode/obs-zoom-to-mouse](https://github.com/BlankSourceCode/obs-zoom-to-mouse)
-- **Forked as:** obs-click-to-zoom (this project)
+- **Forked as:** click-to-zoom (this project)
 - **Inspired by:** [tryptech/obs-zoom-and-follow](https://github.com/tryptech/obs-zoom-and-follow)
 
 ---
 
 ## Development
-- Edit `obs-zoom-to-mouse.lua` as needed
+- Edit `click-to-zoom.lua` as needed
 - Click `Reload Scripts` in the OBS Scripts window to apply changes
 
