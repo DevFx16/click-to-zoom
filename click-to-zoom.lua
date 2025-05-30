@@ -7,7 +7,7 @@
 local obs = obslua
 local ffi = require("ffi")
 local VERSION = "1.0"
-local CROP_FILTER_NAME = "obs-zoom-to-mouse-crop"
+local CROP_FILTER_NAME = "click_to_zoom-crop"
 
 local source_name = ""
 local source = nil
@@ -858,7 +858,7 @@ function refresh_sceneitem(find_newest)
         -- Quit early if we are using no zoom source
         -- This allows users to reset the crop data back to the original,
         -- update it, and then force the conversion to happen by re-selecting it.
-        if source_name == "obs-zoom-to-mouse-none" then
+        if source_name == "click_to_zoom-none" then
             return
         end
 
@@ -1318,11 +1318,11 @@ function script_load(settings)
         on_toggle_follow)
 
     -- Attempt to reload existing hotkey bindings if we can find any
-    local hotkey_save_array = obs.obs_data_get_array(settings, "obs_zoom_to_mouse.hotkey.zoom")
+    local hotkey_save_array = obs.obs_data_get_array(settings, "click_to_zoom.hotkey.zoom")
     obs.obs_hotkey_load(hotkey_zoom_id, hotkey_save_array)
     obs.obs_data_array_release(hotkey_save_array)
 
-    hotkey_save_array = obs.obs_data_get_array(settings, "obs_zoom_to_mouse.hotkey.follow")
+    hotkey_save_array = obs.obs_data_get_array(settings, "click_to_zoom.hotkey.follow")
     obs.obs_hotkey_load(hotkey_follow_id, hotkey_save_array)
     obs.obs_data_array_release(hotkey_save_array)
 
@@ -1421,13 +1421,13 @@ function script_save(settings)
     -- Save the custom hotkey information
     if hotkey_zoom_id ~= nil then
         local hotkey_save_array = obs.obs_hotkey_save(hotkey_zoom_id)
-        obs.obs_data_set_array(settings, "obs_zoom_to_mouse.hotkey.zoom", hotkey_save_array)
+        obs.obs_data_set_array(settings, "click_to_zoom.hotkey.zoom", hotkey_save_array)
         obs.obs_data_array_release(hotkey_save_array)
     end
 
     if hotkey_follow_id ~= nil then
         local hotkey_save_array = obs.obs_hotkey_save(hotkey_follow_id)
-        obs.obs_data_set_array(settings, "obs_zoom_to_mouse.hotkey.follow", hotkey_save_array)
+        obs.obs_data_set_array(settings, "click_to_zoom.hotkey.follow", hotkey_save_array)
         obs.obs_data_array_release(hotkey_save_array)
     end
 end
@@ -1438,7 +1438,7 @@ function populate_zoom_sources(list)
     local sources = obs.obs_enum_sources()
     if sources ~= nil then
         local dc_info = get_dc_info()
-        obs.obs_property_list_add_string(list, "<None>", "obs-zoom-to-mouse-none")
+        obs.obs_property_list_add_string(list, "<None>", "click_to_zoom-none")
         for _, source in ipairs(sources) do
             local source_type = obs.obs_source_get_id(source)
             if source_type == dc_info.source_id or allow_all_sources then
